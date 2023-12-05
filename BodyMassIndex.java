@@ -60,7 +60,7 @@ public class BodyMassIndex extends JFrame
         //menambahkan main Panel ke dalam frame
         add(mainPanel);
 
-        //Fungsi buttonnya
+        //Fungsi button
         hitungButton.addActionListener(new ActionListener()
         {
             @Override
@@ -71,28 +71,28 @@ public class BodyMassIndex extends JFrame
         });
     }
 
-    //buat fungsi untuk hitungBMI
+    //Membuat fungsi untuk hitungBMI
     private void hitungBMI()
     {
         try
         {
-            //Ambil input berat dan tingginya
+            //Input berat dan tingginya
             double berat = Double.parseDouble(beratTextField.getText());
             double tinggi = Double.parseDouble(tinggiTextField.getText());
 
             //Untuk default satuan tingginya Meter jadi saya convert ke Cm
             double tinggiMeter = tinggi / 100.0;
 
-            //Hitung menggunakan rumus BMI
+            //Rumus BMI
             double bmi = berat / (tinggiMeter * tinggiMeter);
 
-            //untuk hasilnya tampilkan menggunakan popup
+            //untuk hasil tampilkan menggunakan popup
             String kategoriBmi = determinekategoriBmi(bmi);
             JOptionPane.showMessageDialog(this, "BMI kamu: " + String.format("%.2f" , bmi) + "\nKategori: " + kategoriBmi, "Hasil BMI", JOptionPane.INFORMATION_MESSAGE);
         }
         catch (NumberFormatException ex)
         {
-            JOptionPane.showMessageDialog(this, "Input kamu Salah! Input tinggi dan berat dengan nomor!", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Input Salah! Masukan tinggi dan berat dengan angka!", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -100,7 +100,7 @@ public class BodyMassIndex extends JFrame
     {
         if (bmi < 18.5)
         {
-            return "Kamu Kekurangan Berat Badan";
+            return "Kamu Kurangan Berat Badan";
         }
         else if (bmi >= 18.5 && bmi <= 24.9)
         {
@@ -112,7 +112,7 @@ public class BodyMassIndex extends JFrame
         }
         else
         {
-            return "Kamu Sedang Obesitas";
+            return "Kamu Sedang Obesitas jadi Kurangi Berat Badanmu!!";
         }
     }
 
